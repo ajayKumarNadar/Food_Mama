@@ -1633,5 +1633,14 @@ table {
   }
   .category .row.justify-content-center {
     margin: 0;
-  } 
+  }
+  .food-action {
+    display: block;
+  }
+  .food-action form button {
+    margin-top: 5px;
+  }
+  .products .col {
+    padding: 0.5rem;
+  }
 }
