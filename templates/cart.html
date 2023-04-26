@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Food Mama | Cart{% endblock %}
+{% block content %}
+  {% if cart_data | length %}
+    <div class="food-cart">
+      <div class="row">
+        <div class="col-md-8 col-12 cart-food-container">
+          <div class="row justify-content-center">
+            {% for item in cart_data %}
+            <div class="col-md-4 col-12">
+              <div class="cart-food">
+                <div class="cart-food-img" style='background-image: url("{{ item["product"].image}}");'>
+                  <div>
+                    <img src="{{ item['product'].image}}" alt="">
+                  </div>
+                </div>
+                <div class="cart-food-info">
+                  <h3>{{ item['product'].name}}</h3>
+                  <div class="cart-no-of-item">
+                    <a href="{{ url_for('remove_one', product_id=item['product'].id, place='cart') }}"><i class="fa-solid fa-minus"></i></a>
+                    <input type="number" value="{{ item['number'] }}" min="1" max="4">
+                    <a href="{{ url_for('add_one', product_id=item['product'].id, place='cart') }}"><i class="fa-solid fa-plus"></i></a>
+                  </div>
+                  <div class="cart-forth-row">
+                    <a class="btn btn-outline-danger btn-sm cart-item-remove" href="{{ url_for('remove_from_cart', product_id=item['product'].id, place='cart') }}">REMOVE</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-4 col-12 cart-total-container">
+          <div class="cart-total">
+            <h5>Invoive</h5>
+            <hr>
+            <table>
+              {% for item in cart_data %}
+              <tr>
+                <td>
+                  <h6>{{item['number']}} x {{item['product'].name}}</h6>
+                </td>
+                <td class="for-price">
+                  <h6>₹ {{item['price']}}</h6>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+            <hr>
+            <table>
+              <tr>
+                <td>
+                  <h5>Total Cost:</h5>
+                </td>
+                <td class="for-price">
+                  <h6>₹ {{total_data}}</h6>
+                </td>
+              </tr>
+            </table>
+            <form>
+              <button class="pre-order"><i class="fa-solid fa-bolt-lightning"></i>&nbsp;Pre-Order</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {% else %}
+    <div class="cart-page-empty">
+      <div>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h1>Cart is Empty</h1>
+      </div>
+
+    </div>
+  {% endif %}
+{% endblock %}

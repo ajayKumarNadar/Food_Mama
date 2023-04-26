@@ -1,0 +1,340 @@
+{% extends "base.html" %} {% block content %}
+<!-- Carousel -->
+<div
+  id="carouselExampleIndicators"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <!--  -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="8000">
+      <a href="#">
+        <img src="../static/assets/foodmama1.png" class="d-block" alt="..." />
+      </a>
+    </div>
+    <div class="carousel-item" data-bs-interval="8000">
+      <a href="#">
+        <img src="../static/assets/foodmama2.png" class="d-block" alt="..." />
+      </a>
+    </div>
+    <div class="carousel-item" data-bs-interval="8000">
+      <a href="#">
+        <img src="../static/assets/foodmama3.png" class="d-block" alt="..." />
+      </a>
+    </div>
+  </div>
+
+  <div class="carousel-control-prew-div">
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+  </div>
+
+  <div class="carousel-control-next-div">
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<!-- Products -->
+<!--    <div class="products">-->
+<!--      <div class="products-row">-->
+<!--        <div class="description">-->
+<!--          <p>Best of Smartphones</p>-->
+<!--        </div>-->
+<!--        <div class="products-items">-->
+<!--          {% for product in products %}-->
+<!--            {% if product.category == "mobile" %}-->
+<!--              <a class="item" href="{{ url_for('product', product_id=product.id) }}">-->
+<!--                <img class="item-img" src="{{ product.image }}" alt="{{ product.name }}">-->
+<!--                <h5>{{ product.name }}</h5>-->
+<!--                <div class="item-offer">-->
+<!--                  <img src="../static/assets/offer.png" alt="">-->
+<!--                &lt;!&ndash; offer&ndash;&gt;-->
+<!--                  <p>{{ (100 - (product.discount_price * 100 / product.price)) | int }}%<br>Off</p>-->
+<!--                </div>-->
+<!--                <div class="item-price">-->
+<!--                  <h6>₹{{ product.price | int }}</h6>-->
+<!--                  <h6>₹{{ product.discount_price | int }}</h6>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            {% endif %}-->
+<!--          {% endfor %}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="products-row">-->
+<!--        <div class="description">-->
+<!--          <p>Best of Electronics</p>-->
+<!--        </div>-->
+<!--        <div class="products-items">-->
+<!--          {% for product in products %}-->
+<!--            {% if product.category == "electronic accessories" %}-->
+<!--              <a class="item" href="{{ url_for('product', product_id=product.id) }}">-->
+<!--                <img class="item-img" src="{{ product.image }}" alt="iphone14-pro-max">-->
+<!--                <h5>{{ product.name }}</h5>-->
+<!--                <div class="item-offer">-->
+<!--                  <img src="../static/assets/offer.png" alt="">-->
+<!--                &lt;!&ndash; offer&ndash;&gt;-->
+<!--                  <p>{{ (100 - (product.discount_price * 100 / product.price)) | int }}%<br>Off</p>-->
+<!--                </div>-->
+<!--                <div class="item-price">-->
+<!--                  <h6>₹{{ product.price | int }}</h6>-->
+<!--                  <h6>₹{{ product.discount_price | int }}</h6>-->
+<!--                </div>-->
+<!--              </a>-->
+<!--            {% endif %}-->
+<!--          {% endfor %}-->
+<!--&lt;!&ndash;          <a class="item" href="#">&ndash;&gt;-->
+<!--&lt;!&ndash;            <img class="item-img" src="../static/assets/iphone14-pro-max.jpg" alt="iphone14-pro-max">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h5>iPhone 14 Pro Max</h5>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="item-offer">&ndash;&gt;-->
+<!--&lt;!&ndash;              <img src="../static/assets/offer.png" alt="">&ndash;&gt;-->
+<!--&lt;!&ndash;              <p>25%<br>Off</p>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="item-price">&ndash;&gt;-->
+<!--&lt;!&ndash;              <h6>₹2,00,000</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;              <h6>₹1,89,900</h6>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<div class="products">
+  <div class="category">
+    <h3>Italian</h3>
+    <hr />
+    <div class="row justify-content-center">
+      {% for product in products %} {% if product.category == "Italian" %}
+      <div class="col col-6 col-md-4">
+        <div class="food-item">
+          <div
+            class="food-img-bg"
+            style="background-image: url('{{product.image}}');"
+          >
+            <div>
+              <img class="food-img" src="{{product.image}}" alt="" />
+            </div>
+          </div>
+          <span
+            ><img class="price-img" src="../static/assets/offer.png" alt="" />
+            <p>{{product.price | int}}₹</p>
+          </span>
+          {%if product.veg%}
+          <i class="fa-solid fa-circle veg"></i>
+          {% else %}
+          <i class="fa-solid fa-circle non-veg"></i>
+          {%endif %}
+          <div class="food-detail">
+            <h6>{{product.name}}</h6>
+            <div>
+              <hr />
+              <div class="food-action">
+                <form
+                  action="{{ url_for('add_to_cart', product_id=product.id ) }}"
+                  method="post"
+                >
+                  <button class="add-to-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                  </button>
+                </form>
+                <form>
+                  <button class="pre-order disable">
+                    <i class="fa-solid fa-bolt-lightning"></i>&nbsp;Pre Order
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>Street Food</h3>
+    <hr />
+    <div class="row justify-content-center">
+      {% for product in products %} {% if product.category == "Street food" %}
+      <div class="col col-6 col-md-4">
+        <div class="food-item">
+            <div
+            class="food-img-bg"
+            style="background-image: url('{{product.image}}');"
+          >
+            <div>
+              <img class="food-img" src="{{product.image}}" alt="" />
+            </div>
+          </div>
+          <span
+            ><img class="price-img" src="../static/assets/offer.png" alt="" />
+            <p>{{product.price | int}}₹</p>
+          </span>
+          {%if product.veg%}
+          <i class="fa-solid fa-circle veg"></i>
+          {% else %}
+          <i class="fa-solid fa-circle non-veg"></i>
+          {%endif %}
+          <div class="food-detail">
+            <h6>{{product.name}}</h6>
+            <div>
+              <hr />
+              <div class="food-action">
+                <form
+                  action="{{ url_for('add_to_cart', product_id=product.id ) }}"
+                  method="post"
+                >
+                  <button class="add-to-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                  </button>
+                </form>
+                <form>
+                  <button class="pre-order disable">
+                    <i class="fa-solid fa-bolt-lightning"></i>&nbsp;Pre Order
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>Drinks</h3>
+    <hr />
+    <div class="row justify-content-center">
+      {% for product in products %} {% if product.category == "Drinks" %}
+      <div class="col col-6 col-md-4">
+        <div class="food-item">
+            <div
+            class="food-img-bg"
+            style="background-image: url('{{product.image}}');"
+          >
+            <div>
+              <img class="food-img" src="{{product.image}}" alt="" />
+            </div>
+          </div>
+          <span
+            ><img class="price-img" src="../static/assets/offer.png" alt="" />
+            <p>{{product.price | int}}₹</p>
+          </span>
+          {%if product.veg%}
+          <i class="fa-solid fa-circle veg"></i>
+          {% else %}
+          <i class="fa-solid fa-circle non-veg"></i>
+          {%endif %}
+          <div class="food-detail">
+            <h6>{{product.name}}</h6>
+            <div>
+              <hr />
+              <div class="food-action">
+                <form
+                  action="{{ url_for('add_to_cart', product_id=product.id ) }}"
+                  method="post"
+                >
+                  <button class="add-to-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                  </button>
+                </form>
+                <form>
+                  <button class="pre-order disable">
+                    <i class="fa-solid fa-bolt-lightning"></i>&nbsp;Pre Order
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+
+  <div class="category">
+    <h3>Extras</h3>
+    <hr />
+    <div class="row justify-content-center">
+      {% for product in products %} {% if product.category == "extra" %}
+      <div class="col col-6 col-md-4">
+        <div class="food-item">
+            <div
+            class="food-img-bg"
+            style="background-image: url('{{product.image}}');"
+          >
+            <div>
+              <img class="food-img" src="{{product.image}}" alt="" />
+            </div>
+          </div>
+          <span
+            ><img class="price-img" src="../static/assets/offer.png" alt="" />
+            <p>{{product.price | int}}₹</p>
+          </span>
+          {%if product.veg%}
+          <i class="fa-solid fa-circle veg"></i>
+          {% else %}
+          <i class="fa-solid fa-circle non-veg"></i>
+          {%endif %}
+          <div class="food-detail">
+            <h6>{{product.name}}</h6>
+            <div>
+              <hr />
+              <div class="food-action">
+                <form action="/" method="post">
+                  <button class="add-to-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;Add to Cart
+                  </button>
+                </form>
+                <form action="/" method="post">
+                  <button class="pre-order disable">
+                    <i class="fa-solid fa-bolt-lightning"></i>&nbsp;Pre Order
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
