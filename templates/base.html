@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{% block title %}Food Mama{% endblock %}</title>
+    <title>{% block title %}Flavour on Wheels{% endblock %}</title>
 
     <!-- Bootstrap -->
     <link
@@ -38,7 +38,7 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-dark bg-warning">
       <div class="container-fluid">
-        <a class="navbar-brand" href='{{ url_for("home") }}'>Food Mama</a>
+        <a class="navbar-brand" href='{{ url_for("home") }}'>Flavour on Wheels</a>
 
         <form class="d-flex search-form ms-sm-auto" role="search">
           <input
@@ -92,7 +92,7 @@
     <!-- Navbar Placeholder -->
     <nav class="navbar navbar-placeholder navbar-dark bg-warning">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Food Mama</a>
+        <a class="navbar-brand" href="#">Flavour on Wheels</a>
 
         <form class="d-flex search-form ms-sm-auto" role="search">
           <input
@@ -149,7 +149,7 @@
 <!--          <a href=""><i class="fa-brands fa-twitter"></i></a>-->
 <!--          <a href=""><i class="fa-brands fa-discord"></i></a>-->
 <!--        </div>-->
-<!--        <h4 id="copyright">@ Copyright </h4><h1 class="brand">Food Mama</h1>-->
+<!--        <h4 id="copyright">@ Copyright </h4><h1 class="brand">Flavour on Wheels</h1>-->
 <!--      </footer>-->
     <!-- Bootstraps -->
     <script
@@ -162,14 +162,14 @@
     <script>
       const input = document.querySelector(".search-input");
       if (window.innerWidth <= 575) {
-        input.setAttribute("placeholder", "Food Mama");
+        input.setAttribute("placeholder", "Flavour on Wheels");
       } else {
         input.setAttribute("placeholder", "Search");
       }
       window.onresize = () =>
         input.setAttribute(
           "placeholder",
-          window.innerWidth < 576 ? "Food Mama" : "Search"
+          window.innerWidth < 576 ? "Flavour on Wheels" : "Search"
         );
     </script>
 

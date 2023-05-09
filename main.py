@@ -112,8 +112,8 @@ def send_otp():
     for _ in range(6):
         otp += str(random.randint(0, 9))
     print(otp)
-    msg = Message(f"Food Mama: Email Verification OTP [{otp}]", sender=EMAIL_ID, recipients=[email])
-    msg.html = f'''<h2>OTP for you Email Verification is-</h2>\n<h1>{otp}</h1>\n\n<h4>Thanks and Regards,</h4><h4>Food Mama.</h4>'''
+    msg = Message(f"Flavour on Wheels: Email Verification OTP [{otp}]", sender=EMAIL_ID, recipients=[email])
+    msg.html = f'''<h2>OTP for you Email Verification is-</h2>\n<h1>{otp}</h1>\n\n<h4>Thanks and Regards,</h4><h4>Flavour on Wheels.</h4>'''
     mail.send(msg)
 
 
